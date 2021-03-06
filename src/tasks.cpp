@@ -11,19 +11,45 @@ using std::copy;
 
 // Задание 1
 void swap_args(int *lhs, int *rhs) {
-    // напишите код здесь ...
+    int swap_arg;
+    if (lhs and rhs ) {
+        swap_arg = *lhs;
+        *lhs = *rhs;
+        *rhs = swap_arg;
+
+    }
 }
 
 // Задание 2
 int **allocate_2d_array(int num_rows, int num_cols, int init_value) {
-    // напишите код здесь ...
-    return nullptr;
+
+    if (num_rows > 0 && num_cols > 0) {
+
+        int **arr = new int *[num_rows];
+        for (int i = 0; i < num_rows; i++){
+            arr[i] = new int [num_cols];
+        }
+        for (int i = 0; i < num_rows; i++){
+            for (int j = 0; j < num_cols; j++){
+                arr[i][j] = init_value;
+            }
+        }
+        return arr;
+    }
+    else {
+        return nullptr;
+    }
 }
 
 // Задание 3
 bool copy_2d_array(int **arr_2d_source, int **arr_2d_target, int num_rows, int num_cols) {
-    // напишите код здесь ...
-    return false;
+    if ((arr_2d_source == nullptr) || (arr_2d_target == nullptr) || (num_rows <= 0) || (num_cols <= 0)) {
+        return false;
+    } else {
+        for (int i = 0; i < num_rows; i++) {
+            copy(arr_2d_source[i],arr_2d_source[i]+ num_cols, arr_2d_target[i]);
+        }
+    } return true;
 }
 
 // Задание 4
